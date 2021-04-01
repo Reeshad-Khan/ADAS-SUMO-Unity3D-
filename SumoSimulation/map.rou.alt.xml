@@ -27,29 +27,52 @@
 </configuration>
 -->
 
-<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
-    <vTypeDistribution id="mixed">
-        <vType accel="1.0" decel="5.0" id="AggrCar" length="5.0" minGap="2.0" maxSpeed="50.0" sigma="0" color = "1,0,0" />
+<routes>
+    <!--<vTypeDistribution id="mixed">
+        <vType accel="2.0" decel="5.0" id="AggrCar" length="5.0" minGap="0" maxSpeed="150.0" sigma="0" color = "1,0,0" />
         <vType accel="1.0" decel="5.0" id="Car" length="5.0" minGap="2.0" maxSpeed="50.0" sigma="0"/>
     </vTypeDistribution>
 	<route id="always_right" edges="455687907#0 455687907#3 196116967#0 -165473832#2 -577976192#4 -577976192#3 5671137#0"/>
     <route id="vertical" edges="5671137#0 5671137#1 5671137#2 5671137#4"/>
     <route id="always_left" edges="577976192#0 577976192#3 243056524#1 -455687907#3 -455687907#2"/>
     <route id="horizontal" edges="455687907#0 455687907#3 196116967#0 196116967#1 196116967#2"/>
-	<flow id="alA" type="AggrCar" route="always_left" number = "25" />
+	<flow id="alA" type="AggrCar" route="always_left" number = "20" />
     <flow id="alC" type="Car" route="always_left" number = "10" />
-    <flow id="arA" type="AggrCar" route="always_right" number="25"/> 
-    <flow id="arC" type="Car" route="always_right" number = "10" />
+    <flow id="arA" type="AggrCar" route="always_right" number="15"/> 
+    <flow id="arC" type="Car" route="always_right" number = "5" />
    
-    <flow id="hoA" type="AggrCar" route="horizontal" number = "25" />
-    <flow id="hoC" type="Car" route="horizontal" number = "10" />
+    <flow id="hoA" type="AggrCar" route="horizontal" number = "0" />
+    <flow id="hoC" type="Car" route="horizontal" number = "5" />
     <flow id="veA" type="AggrCar" route="vertical" number = "25" />
-    <flow id="veC" type="Car" route="vertical" number = "10" />
-	<vehicle id="0" depart="0.00">
+    <flow id="veC" type="Car" route="vertical" number = "15" />-->
+	<!--<vehicle id="0" depart="0.00">
         <routeDistribution last="0">
-            <route cost="47.73" probability="1.00000000" edges="455687907#0 455687907#3 196116967#0 196116967#1 196116967#2"/>
+            <route cost="47.73" probability="1.00000000" edges="196116967#0 196116967#1 196116967#2"/>
         </routeDistribution>
-    </vehicle>
+    </vehicle>-->
+		<vType carFollowModel="IDM" color="0,255,255" id="trailer" laneChangeModel="LC2013" length="6" minGap="0" minGapLat="0" vClass="trailer" />
+		<vehicle depart="0" departPos="0" departSpeed="25" id="1" type="trailer">
+			<route edges="-165473832#3 196116967#1" />
+		</vehicle>
+		<vType carFollowModel="IDM" color="255,255,0" id="moped" laneChangeModel="LC2013" length="6" minGap="0" minGapLat="0" vClass="moped" />
+		<vehicle depart="2" departPos="0" departSpeed="5" id="3" type="moped">
+			<route edges="196116967#0 196116967#1 196116967#2 196116967#3 196116967#4 196116967#5 196116967#6 196116967#7 196116967#8 196116967#9 196116967#10" />
+		</vehicle>
+
+		<vType carFollowModel="IDM" color="0,255,255" id="passenger" laneChangeModel="LC2013" length="6" minGap="0" minGapLat="0" vClass="passenger" />
+		<vehicle depart="15.0" departPos="0" departSpeed="10" id="2" type="passenger">
+			<route edges="165473832#2 165473832#3" />
+		</vehicle>
+		
+		<vType id="passenger2" vClass="passenger" length="6" color="0,255,255" carFollowModel="IDM" laneChangeModel="LC2013" minGap="0" minGapLat="0"/>
+		<vehicle id="4" type="passenger" depart="20.0" departPos="0" departSpeed="7.4" jmCrossingGap="0">
+			<route edges="196116967#1 196116967#2" />
+		</vehicle>
+		
+		<person id="ped0" depart="20" departPos="base" departSpeed="2">
+			<walk edges="5673106#2 5673106#3"/>
+		</person>
+		
     <!--<vehicle id="1" depart="1.00">
         <routeDistribution last="0">
             <route cost="22.23" probability="1.00000000" edges="243056524#1 196116967#0 -165473832#2 -577976192#4"/>

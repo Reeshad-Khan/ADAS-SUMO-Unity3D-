@@ -3,5 +3,20 @@
          <net-file value="map.net.xml"/> 		
          <additional-files value="map.poly.xml"/>
          <route-files value="map.rou.alt.xml"/>
+		 <gui-settings-file value="gui-settings.cfg"/>
      </input>
+	 <time>
+        <begin value="0" />
+        <end value="100" />
+        <step-length value="0.1" />
+     </time>
+	
+     <report>
+        <no-warnings value="False" />
+     </report>
+	
+	 <processing>
+        <collision.action value="warn" />
+        <collision.check-junctions value="True" />
+     </processing>
  </configuration>
