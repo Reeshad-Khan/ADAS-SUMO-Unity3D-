@@ -60,6 +60,7 @@
      <Compile Include="Assets\Standard Assets\2D\Scripts\Restarter.cs" />
      <Compile Include="Assets\Standard Assets\Cameras\Scripts\AbstractTargetFollower.cs" />
      <Compile Include="Assets\Standard Assets\Cameras\Scripts\AutoCam.cs" />
+     <Compile Include="Assets\Standard Assets\Cameras\Scripts\CamSwitch.cs" />
      <Compile Include="Assets\Standard Assets\Cameras\Scripts\FreeLookCam.cs" />
      <Compile Include="Assets\Standard Assets\Cameras\Scripts\HandHeldCam.cs" />
      <Compile Include="Assets\Standard Assets\Cameras\Scripts\LookatTarget.cs" />

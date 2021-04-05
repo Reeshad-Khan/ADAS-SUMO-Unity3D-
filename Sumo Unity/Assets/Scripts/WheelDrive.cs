@@ -31,6 +31,7 @@ public class WheelDrive : MonoBehaviour
 	public DriveType driveType;
 
     private WheelCollider[] m_Wheels;
+     float speed;
 
     // Find all the WheelColliders down in the hierarchy.
 	void Start()
@@ -56,7 +57,13 @@ public class WheelDrive : MonoBehaviour
 		}
 	}
 
-	
+     //Displays the Speed that the ego-vehicle is currently travelling at
+	private void OnGUI()
+	{
+		int mstokmh = (int)( speed * 3.6);
+		
+		GUI.Box (new Rect (Screen.width - 100,Screen.height - 50,100,50), mstokmh.ToString() + " km/h");
+	}
 
 	// This is a really simple approach to updating wheels.
 	// We simulate a rear wheel drive car and assume that the car is perfectly symmetric at local zero.
